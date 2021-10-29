@@ -25,14 +25,20 @@ class ScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val userActions = activity as UserActions
-
-        binding.number.text = number.toString()
-
         if (number == 1) binding.deleteFragmentButton.visibility = View.GONE
 
-        binding.addFragmentButton.setOnClickListener {
-            userActions.addNewFragment()
+        val userActions = activity as UserActions
+
+        with(binding) {
+            screenNumber.text = number.toString()
+
+            addFragmentButton.setOnClickListener {
+                userActions.addNewFragment()
+            }
+
+            deleteFragmentButton.setOnClickListener {
+                userActions.removeLastFragment()
+            }
         }
     }
 

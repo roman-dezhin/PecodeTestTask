@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity(), UserActions {
     }
 
     override fun removeLastFragment() {
-        TODO("Not yet implemented")
+        changeDataSet { items.removeLast() }
     }
 
     override fun addNotification() {

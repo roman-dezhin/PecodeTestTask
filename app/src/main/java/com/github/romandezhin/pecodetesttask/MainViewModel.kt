@@ -17,7 +17,10 @@ class MainViewModel : ViewModel() {
 
     fun addNew() = items.add(FragmentState(nextValue++))
 
-    fun removeLast() = items.removeLast()
+    fun removeLast() {
+        items.removeLast()
+        nextValue--
+    }
 
     fun createIdSnapshot(): List<Int> = (0 until size).map { position -> itemId(position) }
 }
