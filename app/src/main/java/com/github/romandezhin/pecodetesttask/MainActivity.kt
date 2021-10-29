@@ -60,6 +60,14 @@ class MainActivity : AppCompatActivity(), UserActions {
         }, true).dispatchUpdatesTo(viewPager.adapter!!)
     }
 
+    override fun onBackPressed() {
+        if (viewPager.currentItem == 0) {
+            super.onBackPressed()
+        } else {
+            viewPager.currentItem = viewPager.currentItem - 1
+        }
+    }
+
     override fun addNewFragment() {
         changeDataSet { items.addNew() }
         viewPager.setCurrentItem(items.lastPosition(), true)
