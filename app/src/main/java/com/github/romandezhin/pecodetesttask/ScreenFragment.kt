@@ -14,7 +14,6 @@ class ScreenFragment : Fragment() {
     private var _binding: FragmentScreenBinding? = null
     private val binding get() = _binding!!
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,10 +24,15 @@ class ScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.number.text = number.toString()
-        if (number == 1) binding.deleteFragmentButton.visibility = View.GONE
-        binding.addFragmentButton.setOnClickListener {
 
+        val userActions = activity as UserActions
+
+        binding.number.text = number.toString()
+
+        if (number == 1) binding.deleteFragmentButton.visibility = View.GONE
+
+        binding.addFragmentButton.setOnClickListener {
+            userActions.addNewFragment()
         }
     }
 

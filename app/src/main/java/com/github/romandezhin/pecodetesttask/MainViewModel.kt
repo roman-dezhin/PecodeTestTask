@@ -11,6 +11,8 @@ class MainViewModel : ViewModel() {
 
     fun itemId(position: Int): Int = items[position].id
 
+    fun lastPosition(): Int = items.lastIndex
+
     fun contains(itemId: Int): Boolean = items.any { it.id == itemId }
 
     fun addNew() = items.add(FragmentState(nextValue++))

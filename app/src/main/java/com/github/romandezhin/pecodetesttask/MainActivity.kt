@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), UserActions {
 
     private lateinit var viewPager: ViewPager2
     private val items: MainViewModel by viewModels()
@@ -58,5 +58,18 @@ class MainActivity : AppCompatActivity() {
             override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) =
                 areItemsTheSame(oldItemPosition, newItemPosition)
         }, true).dispatchUpdatesTo(viewPager.adapter!!)
+    }
+
+    override fun addNewFragment() {
+        changeDataSet { items.addNew() }
+        viewPager.setCurrentItem(items.lastPosition(), true)
+    }
+
+    override fun removeLastFragment() {
+        TODO("Not yet implemented")
+    }
+
+    override fun addNotification() {
+        TODO("Not yet implemented")
     }
 }
