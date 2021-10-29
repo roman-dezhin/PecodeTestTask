@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#02AAB0"
+    tools:context=".ScreenFragment">
+
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/round_bottom_rect"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal|center_vertical"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="1" />
+
+    <Button
+        android:id="@+id/add_notification_button"
+        android:layout_width="166dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="143dp"
+        android:background="@drawable/round_button_add_notification"
+        android:fontFamily="sans-serif"
+        android:text="@string/create_new_notification"
+        android:textAllCaps="false"
+        android:gravity="center_horizontal|center_vertical"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:backgroundTint="#33BABF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/add_fragment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/ic_button_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/add_new_fragment" />
+
+    <ImageButton
+        android:id="@+id/delete_fragment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/ic_button_minus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/remove_last_fragment" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

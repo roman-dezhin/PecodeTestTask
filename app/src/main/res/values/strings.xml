@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">PecodeTestTask</string>
+    <string name="create_new_notification">Create new notification</string>
+    <string name="add_new_fragment">Add new fragment</string>
+    <string name="remove_last_fragment">Remove last fragment</string>
 </resources>
