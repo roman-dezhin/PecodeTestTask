@@ -5,12 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import com.github.romandezhin.pecodetesttask.databinding.FragmentScreenBinding
 
 class ScreenFragment : Fragment() {
     private val number by argument<Int>(KEY_ID)
-    private val items: MainViewModel by activityViewModels()
     private var _binding: FragmentScreenBinding? = null
     private val binding get() = _binding!!
 
@@ -38,6 +36,10 @@ class ScreenFragment : Fragment() {
 
             deleteFragmentButton.setOnClickListener {
                 userActions.removeLastFragment()
+            }
+
+            addNotificationButton.setOnClickListener {
+                userActions.addNotification(number)
             }
         }
     }

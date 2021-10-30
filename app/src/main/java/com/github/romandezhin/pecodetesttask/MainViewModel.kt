@@ -7,13 +7,11 @@ class MainViewModel : ViewModel() {
     private val items = mutableListOf(FragmentState(nextValue++))
     val size: Int get() = items.size
 
-    fun getItemById(id: Int): FragmentState = items.first { it.id == id }
-
-    fun itemId(position: Int): Int = items[position].id
+    fun itemId(position: Int): Int = items[position].number
 
     fun lastPosition(): Int = items.lastIndex
 
-    fun contains(itemId: Int): Boolean = items.any { it.id == itemId }
+    fun contains(itemId: Int): Boolean = items.any { it.number == itemId }
 
     fun addNew() = items.add(FragmentState(nextValue++))
 
@@ -23,4 +21,10 @@ class MainViewModel : ViewModel() {
     }
 
     fun createIdSnapshot(): List<Int> = (0 until size).map { position -> itemId(position) }
+
+    fun addNotification(number: Int, id: Int) {
+        items[number - 1].addNotification(id)
+    }
+
+    fun notificationIds(number: Int) = items[number].setOfIds()
 }
