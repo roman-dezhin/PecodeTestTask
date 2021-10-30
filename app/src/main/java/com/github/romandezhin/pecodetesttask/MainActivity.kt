@@ -127,8 +127,8 @@ class MainActivity : AppCompatActivity(), UserActions {
                     R.drawable.ic_notification_large_icon
                 )
             )
-            .setContentTitle("Chat heads active")
-            .setContentText("Notification $screenNumber")
+            .setContentTitle(getString(R.string.notification_title))
+            .setContentText(getString(R.string.notification_text, screenNumber))
             .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setColor(R.color.notification_logo)
