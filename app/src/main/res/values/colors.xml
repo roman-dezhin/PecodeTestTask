@@ -2,8 +2,10 @@
 <resources>
     <color name="primary">#02AAB0</color>
     <color name="notification_logo">#2A56C6</color>
+    <color name="notification_button">#33BABF</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bottom_rect">#49C0BD</color>
 </resources>
