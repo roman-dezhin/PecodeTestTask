@@ -6,23 +6,29 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.drawable.VectorDrawable
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.toBitmap
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.github.romandezhin.pecodetesttask.*
+import com.github.romandezhin.pecodetesttask.R
 import com.github.romandezhin.pecodetesttask.ui.utils.NotificationID
+import com.github.romandezhin.pecodetesttask.withArgs
 
 class MainActivity : AppCompatActivity(), UserActions {
 
     private lateinit var viewPager: ViewPager2
     private val items: MainViewModel by viewModels()
+    private lateinit var largeIcon: Bitmap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +36,23 @@ class MainActivity : AppCompatActivity(), UserActions {
 
         createNotificationChannel()
 
+        largeIcon = getLargeNotificationIcon()
+
         viewPager = findViewById(R.id.view_pager)
         viewPager.adapter = createViewPagerAdapter()
         setCurrentPage(intent.extras?.getInt(EXTRA_SCREEN_ID))
+    }
+
+    private fun getLargeNotificationIcon(): Bitmap {
+        return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
+            (ResourcesCompat.getDrawable(
+                this.resources,
+                R.drawable.ic_notification_large_icon,
+                null
+            ) as VectorDrawable).toBitmap()
+        } else {
+            BitmapFactory.decodeResource(resources, R.drawable.ic_notification_large_icon)
+        }
     }
 
     private fun createViewPagerAdapter(): RecyclerView.Adapter<*> {
@@ -124,12 +144,7 @@ class MainActivity : AppCompatActivity(), UserActions {
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notification_icon)
-            .setLargeIcon(
-                BitmapFactory.decodeResource(
-                    resources,
-                    R.drawable.ic_notification_large_icon
-                )
-            )
+            .setLargeIcon(largeIcon)
             .setContentTitle(getString(R.string.notification_title))
             .setContentText(getString(R.string.notification_text, screenNumber))
             .setContentIntent(pendingIntent)
