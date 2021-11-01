@@ -1,4 +1,4 @@
-package com.github.romandezhin.pecodetesttask
+package com.github.romandezhin.pecodetesttask.ui.utils
 
 import java.util.concurrent.atomic.AtomicInteger
 

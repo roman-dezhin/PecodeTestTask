@@ -1,4 +1,4 @@
-package com.github.romandezhin.pecodetesttask
+package com.github.romandezhin.pecodetesttask.ui
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.github.romandezhin.pecodetesttask.*
+import com.github.romandezhin.pecodetesttask.ui.utils.NotificationID
 
 class MainActivity : AppCompatActivity(), UserActions {
 

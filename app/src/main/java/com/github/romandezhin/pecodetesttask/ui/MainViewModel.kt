@@ -1,10 +1,16 @@
-package com.github.romandezhin.pecodetesttask
+package com.github.romandezhin.pecodetesttask.ui
 
 import androidx.lifecycle.ViewModel
+import com.github.romandezhin.pecodetesttask.DI
+import com.github.romandezhin.pecodetesttask.model.FragmentState
 
 class MainViewModel : ViewModel() {
-    private var nextValue = 1
-    private val items = mutableListOf(FragmentState(nextValue++))
+    private var nextValue = DI.getRepository().fetchCount()
+        set(value) {
+            field = value
+            saveState()
+        }
+    private val items = (1..nextValue++).map{ FragmentState(it) }.toMutableList()
     val size: Int get() = items.size
 
     fun itemId(position: Int): Int = items[position].number
@@ -27,4 +33,8 @@ class MainViewModel : ViewModel() {
     }
 
     fun notificationIds(number: Int) = items[number].setOfIds()
+
+    private fun saveState() {
+        DI.getRepository().saveCount(nextValue - 1)
+    }
 }

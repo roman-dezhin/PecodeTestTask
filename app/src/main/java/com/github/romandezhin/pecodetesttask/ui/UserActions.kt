@@ -1,4 +1,4 @@
-package com.github.romandezhin.pecodetesttask
+package com.github.romandezhin.pecodetesttask.ui
 
 interface UserActions {
     fun addNewFragment()

@@ -1,4 +1,4 @@
-package com.github.romandezhin.pecodetesttask
+package com.github.romandezhin.pecodetesttask.model
 
 class FragmentState(val number: Int) {
     private val notifications = mutableSetOf<Int>()

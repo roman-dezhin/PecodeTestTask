@@ -1,10 +1,11 @@
-package com.github.romandezhin.pecodetesttask
+package com.github.romandezhin.pecodetesttask.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.github.romandezhin.pecodetesttask.argument
 import com.github.romandezhin.pecodetesttask.databinding.FragmentScreenBinding
 
 class ScreenFragment : Fragment() {
